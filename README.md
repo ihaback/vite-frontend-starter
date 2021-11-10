@@ -11,7 +11,7 @@
 
 - ⚡️ Fast dev server powered by [`vite`](https://vitejs.dev/)
 - 📖 Typescript ready
-- 💅 Styling with [`styled-components`](https://styled-components.com/)
+- 💅 Styling and theme intellisense autocompletion with [`styled-components`](https://styled-components.com/)
 - 📦 Pre-configured global state handling with [`redux-toolkit`](https://redux-toolkit.js.org)
 - 🐛 Discover inconsistencies and fix formatting through linting scripts with [`Eslint`](https://eslint.org/)
 - 🔑 Testing scripts with [`React Testing Library`](https://testing-library.com/docs/react-testing-library/intro/)
