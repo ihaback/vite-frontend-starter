@@ -101,7 +101,7 @@ npm install
 npm run dev
 ```
 # Scripts
-```
+```json
 "scripts": {
   "dev": "vite",
   "build": "tsc && vite build",
