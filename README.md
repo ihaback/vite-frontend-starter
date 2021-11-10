@@ -111,3 +111,20 @@ npm run dev
   "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
 },
 ```
+
+# Support for older browsers
+
+```
+npm i @vitejs/plugin-legacy -D
+```
+```js
+// vite.config.ts
+import legacy from '@vitejs/plugin-legacy'
+
+export default {
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })
+  ]
+}
