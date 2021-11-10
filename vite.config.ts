@@ -13,4 +13,7 @@ export default defineConfig({
       '@utils': path.resolve('./src/utils.tsx'),
     },
   },
+  server: {
+    open: 'http://localhost:3000',
+  },
 });
