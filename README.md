@@ -17,6 +17,17 @@
 - 🔑 Testing scripts with [`React Testing Library`](https://testing-library.com/docs/react-testing-library/intro/)
 - 💡 Path aliases do avoid pesky `../../` paths in your code
 
+# Scaffold a new project using this template
+```
+npx degit https://github.com/ihaback/vite-frontend-starter.git your-project-name
+```
+```
+cd your-project-name
+```
+```
+npm install
+```
+
 # Folder aliases for development, testing and building
 ### vite.config.ts
 
