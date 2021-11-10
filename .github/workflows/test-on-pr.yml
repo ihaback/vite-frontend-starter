@@ -9,6 +9,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
 
       - name: Install packages
         run: npm install
