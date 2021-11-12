@@ -68,25 +68,18 @@ export default defineConfig({
 }
 ```
 
-### babel.config.js
+### package.json
 
-```ts
+```json
 {
-  plugins: [
-    [
-      'module-resolver',
-      {
-        root: ['./'],
-        extensions: ['.ts', '.tsx'],
-        alias: {
-          '@utils': './src/utils.tsx',
-          '@store': './src/store/index.ts',
-          '@features': './src/features',
-          '@styles': './src/styles',
-        },
-      },
-    ],
-  ],
+  "jest": {
+    "moduleNameMapper": {
+      "@utils": "<rootDir>/src/utils.tsx",
+      "@store": "<rootDir>/src/store",
+      "@features/(.*)": "<rootDir>/src/features/$1",
+      "@styles": "<rootDir>/src/styles/index.ts"
+    }
+  }
 }
 ```
 

@@ -31,7 +31,6 @@
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
@@ -53,6 +52,12 @@
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx,js,jsx}",
       "!src/**/*.d.ts"
-    ]
+    ],
+    "moduleNameMapper": {
+      "@utils": "<rootDir>/src/utils.tsx",
+      "@store": "<rootDir>/src/store",
+      "@features/(.*)": "<rootDir>/src/features/$1",
+      "@styles": "<rootDir>/src/styles/index.ts"
+    }
   }
 }

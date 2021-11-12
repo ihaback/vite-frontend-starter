@@ -13,19 +13,4 @@ module.exports = {
     '@babel/preset-react',
     '@babel/preset-typescript',
   ],
-  plugins: [
-    [
-      'module-resolver',
-      {
-        root: ['./'],
-        extensions: ['.ts', '.tsx'],
-        alias: {
-          '@utils': './src/utils.tsx',
-          '@store': './src/store/index.ts',
-          '@features': './src/features',
-          '@styles': './src/styles',
-        },
-      },
-    ],
-  ],
 };
