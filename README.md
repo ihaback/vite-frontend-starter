@@ -101,7 +101,7 @@ npm run dev
   "serve": "vite preview",
   "test": "jest",
   "test:coverage": "jest --coverage",
-  "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix && tsc --noEmit"
 },
 ```
 
