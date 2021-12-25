@@ -1,8 +1,8 @@
-// eslint-disable-next-line
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    amd: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -12,16 +12,15 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier',  'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   rules: {
-    'eqeqeq': 'error',
+    eqeqeq: 'error',
     'no-console': 'warn',
     'no-undef': 'off',
     'no-unused-vars': 'off',
@@ -34,7 +33,7 @@ module.exports = {
     'react/no-children-prop': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
   },
   settings: {
     react: {
