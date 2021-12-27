@@ -1,4 +1,4 @@
-import React, { FormEvent, useCallback, ChangeEvent, MouseEvent } from 'react';
+import React, { useCallback } from 'react';
 import { useAppSelector, useAppDispatch } from '@store';
 import Todo from './Todo';
 import { addTodo, onChangeTodo, deleteTodo } from './todoSlice';
@@ -8,18 +8,13 @@ const TodoContainer = () => {
   const currentTodo = useAppSelector(state => state.todos.currentTodo);
   const dispatch = useAppDispatch();
 
-  const handleAddTodo = useCallback(
-    (e: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      dispatch(addTodo(currentTodo));
-    },
-    [dispatch, currentTodo],
-  );
+  const handleAddTodo = useCallback(() => {
+    dispatch(addTodo(currentTodo));
+  }, [dispatch, currentTodo]);
 
   const handleChangeTodo = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      e.preventDefault();
-      dispatch(onChangeTodo(e.target.value));
+    (value: string) => {
+      dispatch(onChangeTodo(value));
     },
     [dispatch],
   );
@@ -41,6 +36,6 @@ const TodoContainer = () => {
       </Todo.Container>
     </Todo.Card>
   );
-};
+}
 
 export default TodoContainer;

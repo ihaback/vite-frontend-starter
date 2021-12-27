@@ -1,45 +1,40 @@
 module.exports = {
   env: {
     browser: true,
-    amd: true,
-    node: true,
+    es2021: true,
+    jest: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 13,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    eqeqeq: 'error',
-    'no-console': 'warn',
-    'no-undef': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.tsx', '**/utils.tsx'] }],
+    'import/extensions': 'off',
+    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
+    'import/prefer-default-export': 'off',
+    'react/prop-types': 'off',
     'no-unused-vars': 'off',
-    'prettier/prettier': 'error',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'error',
-    '@typescript-eslint/no-unused-vars': 'warn',
-    'react/display-name': 'off',
-    'react/no-children-prop': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react/function-component-definition': 'off',
   },
   settings: {
-    react: {
-      pragma: 'React',
-      version: 'detect',
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@features', './src/features'],
+          ['@store', './src/store'],
+          ['@styles', './src/styles'],
+          ['@utils', './src/utils.tsx'],
+        ],
+        extensions: ['.ts', '.tsx', '.json'],
+      },
     },
   },
-  ignorePatterns: ['**/*.svg', 'node_modules', 'dist'],
 };

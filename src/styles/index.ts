@@ -21,9 +21,9 @@ export const theme = {
 export const GlobalStyles = createGlobalStyle`
 body {
   margin: 0;
-  background: ${({ theme }) => theme.colors.bg}; 
-  color: ${({ theme }) => theme.colors.body};
-  font-family:  ${({ theme }) => theme.fontFamily.body};
+  background: ${(p) => p.theme.colors.bg}; 
+  color: ${(p) => p.theme.colors.body};
+  font-family:  ${(p) => p.theme.fontFamily.body};
  }
 
 html,body,#root {

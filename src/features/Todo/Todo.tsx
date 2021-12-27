@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, FormEvent, MouseEvent, ChangeEvent } from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -39,7 +39,7 @@ const InputField = styled.input`
   border-bottom-left-radius: 4px;
 `;
 
-const Form = styled.form`
+const InputWrapper = styled.div`
   display: flex;
 `;
 
@@ -63,36 +63,32 @@ const Item = ({
   handleDeleteTodo: () => void;
   testId: number;
 }>) => (
-  <Wrapper>
-    <Content>{value}</Content>
-    <Cross onClick={handleDeleteTodo} data-testid={`todoItem-${testId}`}>
-      X
-    </Cross>
-  </Wrapper>
-);
+    <Wrapper>
+      <Content>{value}</Content>
+      <Cross onClick={handleDeleteTodo} data-testid={`todoItem-${testId}`}>
+        X
+      </Cross>
+    </Wrapper>
+  )
 
 const Input = ({
   handleAddTodo,
   handleChangeTodo,
   currentTodo,
-}: PropsWithChildren<{
-  handleAddTodo: (e: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>) => void;
-  handleChangeTodo: (e: ChangeEvent<HTMLInputElement>) => void;
-  currentTodo: string;
-}>) => (
-  <Form onSubmit={e => handleAddTodo(e)} data-testid="todoForm">
-    <InputField
-      type="text"
-      name="todo"
-      value={currentTodo}
-      onChange={e => handleChangeTodo(e)}
-      data-testid="todoInput"
-    />
-    <Button data-testid="todoSubmitButton" onClick={handleAddTodo}>
-      Submit
-    </Button>
-  </Form>
-);
+}: PropsWithChildren<{ handleAddTodo: () => void; handleChangeTodo: (value: string) => void; currentTodo: string }>) => (
+    <InputWrapper data-testid="todoWrapper">
+      <InputField
+        type="text"
+        name="todo"
+        value={currentTodo}
+        onChange={e => handleChangeTodo(e.target.value)}
+        data-testid="todoInput"
+      />
+      <Button data-testid="todoSubmitButton" onClick={handleAddTodo}>
+        Submit
+      </Button>
+    </InputWrapper>
+  )
 
 export default {
   Card,
