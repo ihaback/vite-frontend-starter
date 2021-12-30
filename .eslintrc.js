@@ -16,7 +16,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.tsx', '**/utils.tsx'] }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.tsx', './src/utils.tsx', './vite.config.ts', './jest-setup.ts'] }],
     'import/extensions': 'off',
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
     'import/prefer-default-export': 'off',
