@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, FormEvent } from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -39,7 +39,7 @@ const InputField = styled.input`
   border-bottom-left-radius: 4px;
 `;
 
-const InputWrapper = styled.div`
+const Form = styled.form`
   display: flex;
 `;
 
@@ -75,8 +75,8 @@ const Input = ({
   handleAddTodo,
   handleChangeTodo,
   currentTodo,
-}: PropsWithChildren<{ handleAddTodo: () => void; handleChangeTodo: (value: string) => void; currentTodo: string }>) => (
-    <InputWrapper data-testid="todoWrapper">
+}: PropsWithChildren<{ handleAddTodo: (e: FormEvent<HTMLFormElement>) => void; handleChangeTodo: (value: string) => void; currentTodo: string }>) => (
+    <Form data-testid="todoWrapper" onSubmit={e => handleAddTodo(e)}>
       <InputField
         type="text"
         name="todo"
@@ -84,10 +84,10 @@ const Input = ({
         onChange={e => handleChangeTodo(e.target.value)}
         data-testid="todoInput"
       />
-      <Button data-testid="todoSubmitButton" onClick={handleAddTodo}>
+      <Button data-testid="todoSubmitButton" type='submit'>
         Submit
       </Button>
-    </InputWrapper>
+    </Form>
   )
 
 export default {

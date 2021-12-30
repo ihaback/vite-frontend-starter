@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, FormEvent } from 'react';
 import { useAppSelector, useAppDispatch } from '@store';
 import Todo from './Todo';
 import { addTodo, onChangeTodo, deleteTodo } from './todoSlice';
@@ -8,7 +8,8 @@ const TodoContainer = () => {
   const currentTodo = useAppSelector(state => state.todos.currentTodo);
   const dispatch = useAppDispatch();
 
-  const handleAddTodo = useCallback(() => {
+  const handleAddTodo = useCallback((e: FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
     dispatch(addTodo(currentTodo));
   }, [dispatch, currentTodo]);
 
